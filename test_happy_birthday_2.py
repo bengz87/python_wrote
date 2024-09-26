@@ -39,18 +39,17 @@ check_test_function(
 # Question-specific Test Functions
 # ------------------------------------------------------------------------
 
-# @pytest.mark.dependency(
-#     name="test_for_happy_birthday",
-#     depends=["test_expected_functions_exist",
-#              "test_name_eq_main_statement_exist",
-#              "test_code_is_running"]
-# )
+@pytest.mark.dependency(
+    name="test_for_happy_birthday",
+    depends=["test_expected_functions_exist",
+             "test_name_eq_main_statement_exist",
+             "test_code_is_running"]
+)
 
 def test_for_happy_birthday_code_structure():
     """
     Check to see if there are any Lambda functions used in the happy_birthday function
     Checks if any testing functions calls happy_birthday()
-    It is possible that the trainee's solution does not include map/range due to this range of checks in autograder
     """
     import happy_birthday
 
@@ -62,7 +61,7 @@ def test_for_happy_birthday_code_structure():
     )
 
     custom_error_message_no_happy_birthday_in_main = create_custom_error_json(
-        feedback="Please use a main or test function to call the happy_birthday function.",
+        feedback="Please use a main or test function to call the happy_birthday function and test your solution.",
         points_per_error=30,
         max_points_deducted=30,
         number_of_errors=1,
