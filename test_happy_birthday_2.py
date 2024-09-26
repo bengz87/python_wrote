@@ -77,7 +77,7 @@ def test_for_happy_birthday_code_structure():
             self.generic_visit(node)
 
         def visit_Call(self, node):
-            # double_digits func is assigned a lambda, so we need to check for Name instead of a lambda Node
+            # happy_birthday func is assigned a lambda, so we need to check for Name instead of a lambda Node
             if isinstance(node.func, ast.Name) and node.func.id == 'happy_birthday':
                     self.happy_birthday_in_main.append(node)
             self.generic_visit(node)
